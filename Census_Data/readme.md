@@ -4,7 +4,7 @@
 
 <br><br>
 
-For the code to function, you need to import the follwoing Modules:
+For the code to function, you need to import the following Modules:
 <br>
 ```rb
 import requests
