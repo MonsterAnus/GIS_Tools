@@ -4,7 +4,16 @@
 
 <br><br>
 
-This function returns the state FIPS CODE and the State Name in a dictionary as ''01': 'Alabama','
+For the code to function, you need to import the follwoing Modules:
+<br>
+```rb
+import requests
+import csv
+import json
+```
+<br>
+
+This function returns the state FIPS CODE and the State Name in a dictionary as ''01': 'Alabama',':
 <br>
 ```rb
 def getStates():
@@ -19,7 +28,7 @@ def getStates():
 ```
 <br>
 
-This function returns the county FIPS CODE and the County Name in a dictionary as ''Autauga': '01001','
+This function returns the county FIPS CODE and the County Name in a dictionary as ''Autauga': '01001',':
 <br>
 ```rb
 def getCounties():
