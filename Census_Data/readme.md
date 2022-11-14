@@ -1,5 +1,5 @@
 <h1>Get County and States FIPS Code and Name</h1>
-<h2>The code samples are set up a user-defined functions</h2>
+<h2>The code samples are set up as user-defined functions</h2>
 
 ```rb
 def getStates():
@@ -24,3 +24,6 @@ def getCounties():
         d[line[3].replace(" County","")] =  line[1] + line[2]
     return d
 ```
+
+
+<a href="https://www.buymeacoffee.com/sabioguitaS" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
