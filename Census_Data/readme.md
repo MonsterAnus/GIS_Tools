@@ -4,7 +4,7 @@
 
 <br><br>
 
-<p>This function returns the state FIPS CODE and the State Name in a dictionary as ''01': 'Alabama','</p>
+This function returns the state FIPS CODE and the State Name in a dictionary as ''01': 'Alabama','
 <br>
 ```rb
 def getStates():
@@ -18,7 +18,7 @@ def getStates():
     return d2
 ```
 
-<p>This function returns the state FIPS CODE and the County Name in a dictionary as ''Autauga': '01001','</p>
+This function returns the state FIPS CODE and the County Name in a dictionary as ''Autauga': '01001','
 <br>
 ```rb
 def getCounties():
