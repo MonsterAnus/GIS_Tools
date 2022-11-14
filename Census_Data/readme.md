@@ -1,5 +1,6 @@
 <h1>Get County and States FIPS Code and Name</h1>
 <h2>The code samples are set up as user-defined functions</h2>
+<h3>The original code this was adapted from can be found <a href = "https://gist.github.com/cjwinchester/a8ff5dee9c07d161bdf4" target="_blank">here!</a></h3>
 
 ```rb
 def getStates():
