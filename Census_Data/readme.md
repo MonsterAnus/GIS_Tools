@@ -2,8 +2,10 @@
 <h2>The code samples are set up as user-defined functions</h2>
 <h3>The original code this was adapted from can be found <a href = "https://gist.github.com/cjwinchester/a8ff5dee9c07d161bdf4" target="_blank">here!</a></h3>
 
+<br><br>
 
 <p>This function returns the state FIPS CODE and the State Name in a dictionary as ''01': 'Alabama','</p>
+<br>
 ```rb
 def getStates():
     "Function to return a dict of FIPS codes (keys) of U.S. counties (values)"
@@ -17,6 +19,7 @@ def getStates():
 ```
 
 <p>This function returns the state FIPS CODE and the County Name in a dictionary as ''Autauga': '01001','</p>
+<br>
 ```rb
 def getCounties():
     "Function to return a dict of FIPS codes (keys) of U.S. counties (values)"
@@ -27,6 +30,6 @@ def getCounties():
         d[line[3].replace(" County","")] =  line[1] + line[2]
     return d
 ```
-
+<br><br>
 
 <a href="https://www.buymeacoffee.com/sabioguitaS" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
