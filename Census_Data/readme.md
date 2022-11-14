@@ -17,6 +17,7 @@ def getStates():
         d2[line[0]] =  line[2]
     return d2
 ```
+<br>
 
 This function returns the county FIPS CODE and the County Name in a dictionary as ''Autauga': '01001','
 <br>
