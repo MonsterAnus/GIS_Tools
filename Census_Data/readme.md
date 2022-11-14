@@ -13,7 +13,7 @@ import json
 ```
 <br>
 
-This function returns the state FIPS CODE and the State Name in a dictionary as ''01': 'Alabama',':
+This function returns the state FIPS CODE and the State Name in a dictionary as "<b>'01': 'Alabama',</b>":
 <br>
 ```rb
 def getStates():
@@ -28,7 +28,7 @@ def getStates():
 ```
 <br>
 
-This function returns the county FIPS CODE and the County Name in a dictionary as ''Autauga': '01001',':
+This function returns the county FIPS CODE and the County Name in a dictionary as "<b>'Autauga': '01001',</b>":
 <br>
 ```rb
 def getCounties():
