@@ -13,7 +13,7 @@ import json
 ```
 <br>
 
-This function returns the state FIPS CODE and the State Name in a dictionary as "<b>'01': 'Alabama',</b>":
+This function returns the state FIPS CODE and the State Name in a dictionary as "<b>'Alabama': '01',</b>":
 <br>
 ```rb
 def getStates():
@@ -23,7 +23,7 @@ def getStates():
     reader = csv.reader(r.text.splitlines(), delimiter='|')
     reader_list = list(reader)
     for line in reader_list[1:]:
-        d2[line[0]] =  line[2]
+        d2[line[2]] =  line[0]
     return d2
 ```
 <br>
