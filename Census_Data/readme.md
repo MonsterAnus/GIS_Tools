@@ -18,7 +18,7 @@ def getStates():
     return d2
 ```
 
-This function returns the state FIPS CODE and the County Name in a dictionary as ''Autauga': '01001','
+This function returns the county FIPS CODE and the County Name in a dictionary as ''Autauga': '01001','
 <br>
 ```rb
 def getCounties():
