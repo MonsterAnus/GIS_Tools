@@ -28,17 +28,19 @@ def getStates():
 ```
 <br>
 
-This function returns the county FIPS CODE and the County Name in a dictionary as "<b>'Autauga': '01001',</b>":
+This function returns the States FIPS code as a key and then the county FIPS CODE and the County Names for that states as a value in a dictionary: it resemble the following "<b>{'01': {'Autauga': '001', 'Baldwin': '003',...</b>":
 <br>
 ```rb
 def getCounties():
-    "Function to return a dict of FIPS codes (keys) of U.S. counties (values)"
-    d = {}
     r = requests.get("http://www2.census.gov/geo/docs/reference/codes/files/national_county.txt")
-    reader = csv.reader(r.text.splitlines(), delimiter=',')    
+    reader = csv.reader(r.text.splitlines(), delimiter=',')
+    d={}
     for line in reader:
-        d[line[3].replace(" County","")] =  line[1] + line[2]
-    return d
+        if line[1] not in d:
+            d[line[1]] = {line[3].replace(" County", ""): line[2]}
+        else:
+            d[line[1]][line[3].replace(" County", "")] = line[2]
+    return(d)
 ```
 <br><br>
 
