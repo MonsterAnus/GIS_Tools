@@ -1,1 +1,55 @@
-script
+import arcpy
+import pandas as pd
+
+def AveragePolygonNeighbors(input_polygon,foi,input_field,null_value_equivalent,output_file_name):
+    #script parameter
+    arcpy.env.overwriteOutput = True
+    arcpy.env.workspace = path = "C:/Nowhere_Project_March_2022_2/gentrification_script/gent.gdb/"
+
+    arcpy.management.CopyFeatures(input_polygon, output_file_name)
+
+    #script get list of GEOIDS with Null or other value
+    arcpy.management.SelectLayerByAttribute(output_file_name, "NEW_SELECTION", "{} IS NULL Or {} = {}".format(foi,foi,null_value_equivalent), None)
+    geoids = []
+    cursor = arcpy.da.SearchCursor(output_file_name, input_field)
+    for x in cursor:
+        geoids.append(x[0])
+    del cursor
+
+    #script update values with average of neighboring polygons
+    foi_geoid_list = []
+    foi_value_list = []
+    avg_value_list = []
+    for geoid in geoids:
+        print(geoid, "this is the GEOID")
+        arcpy.management.SelectLayerByAttribute(output_file_name, "NEW_SELECTION", "{} = '{}'".format(input_field, geoid), None)
+        arcpy.management.SelectLayerByLocation(output_file_name, "SHARE_A_LINE_SEGMENT_WITH", output_file_name, None, "ADD_TO_SELECTION", "NOT_INVERT")
+        foi_value = [] #foi stands for field of interest
+        foi_geoid = [] #foi stands for field of interest
+        sc = arcpy.da.SearchCursor(output_file_name, [foi,input_field])
+        for y in sc:
+            if y[0] == null_value_equivalent or y[0] is None:
+                continue
+            else:
+                foi_value.append(y[0])
+                foi_geoid.append(y[1])
+        foi_geoid_list.append(foi_geoid)
+        foi_value_list.append(foi_value)
+        try:
+            avg_value = int(sum(foi_value)/len(foi_value))
+        except:
+            avg_value = None
+        avg_value_list.append(avg_value)
+        arcpy.management.SelectLayerByAttribute(output_file_name, "NEW_SELECTION", "{} = '{}'".format(input_field,geoid), None)
+        uc = arcpy.da.UpdateCursor(output_file_name, foi)
+        for row in uc:
+            print(row[0])
+            print(avg_value)
+            row[0] = avg_value
+            uc.updateRow(row)
+        del sc
+        del uc
+
+    df = pd.DataFrame({'GEOID': geoids,'AVG_Value':avg_value_list})
+
+    return df
